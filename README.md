@@ -183,7 +183,14 @@ This uses CGO and binds to the nginx development kit:
 There is a sample Dockerfile and entrypoint which builds and runs this custom
 nginx installation with all required modules.
 
+```
+$ docker buildx create --use
+$ docker buildx build --platform linux/amd64,linux/arm64 -t "hashicorp/nginx-consul" -f docker/build.Dockerfile .
+```
+
+
 ## Alternatives
 
 - [Consul Template](https://github.com/hashicorp/consul-template)
 - [nginx upstream sync](https://github.com/weibocom/nginx-upsync-module)
+

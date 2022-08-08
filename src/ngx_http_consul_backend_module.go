@@ -50,8 +50,11 @@ func LookupBackend(svc *C.char) *C.char {
 
 	list, err := backends(service, tag)
 	if err != nil {
-		log.Fatal(err)
+		// log.Fatal(err)
+		// We log and gracefully drop through
+		log.Printf("[consul] error: ", err)
 	}
+	// If not results or an error
 	if len(list) < 1 {
 		return resultNoBackend
 	}
