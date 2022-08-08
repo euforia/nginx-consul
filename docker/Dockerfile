@@ -30,7 +30,8 @@ COPY go.mod .
 COPY go.sum .
 RUN go mod download
 
-ADD . .
+COPY src src
+COPY config config
 
 RUN CGO_CFLAGS="-I /tmp/ngx_devel_kit-${NDK_VERSION}/src" \
   go build -buildmode=c-shared \
