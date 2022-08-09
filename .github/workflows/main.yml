@@ -32,18 +32,17 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Extract metadata (tags, labels) for Docker
-        id: meta
-        uses: docker/metadata-action@v1
-        with:
-          images: |
-            latest
-            ${{ github.actor }}/nginx-consul
-            ghcr.io/${{ github.actor }}/nginx-consul
+      # - name: Extract metadata (tags, labels) for Docker
+      #   id: meta
+      #   uses: docker/metadata-action@v1
+      #   with:
+      #     images: |
+      #       ${{ github.actor }}/nginx-consul
+      #       ghcr.io/${{ github.actor }}/nginx-consul
 
       - name: Build and push image
         uses: docker/build-push-action@v1
         with:
           dockerfile: docker/Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ github.actor }}/nginx-consul:latest
