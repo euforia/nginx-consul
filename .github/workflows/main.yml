@@ -37,6 +37,7 @@ jobs:
         uses: docker/metadata-action@v1
         with:
           images: |
+            latest
             ${{ github.actor }}/nginx-consul
             ghcr.io/${{ github.actor }}/nginx-consul
 
