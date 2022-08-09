@@ -9,6 +9,12 @@ call Go code from C and the ability to link nginx directly to Consul! It is
 not production ready and should be considered _inspiration only_.**
 
 
+## Container image 
+
+```
+ghcr.io/euforia/nginx-consul
+```
+
 ## Usage
 
 This module installs a `consul` directive inside the `location` block, and sets
