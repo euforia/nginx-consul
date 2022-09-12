@@ -36,5 +36,5 @@ jobs:
 
       - name: Publish
         run: |
-          docker tag nginx-consul ghcr.io/${{github.actor}}/nginx-consul
-          docker push ghcr.io/${{github.actor}}/nginx-consul
+          docker tag nginx-consul ghcr.io/${{github.actor}}/nginx-consul:${{github.ref_name}}
+          docker push ghcr.io/${{github.actor}}/nginx-consul:${{github.ref_name}}
