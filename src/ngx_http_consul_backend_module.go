@@ -44,9 +44,10 @@ func init() {
 
 //export LookupBackend
 func LookupBackend(svc *C.char) *C.char {
-	service, tag := extractService(C.GoString(svc))
+	str := C.GoString(svc)
+	service, tag := extractService(str)
 
-	log.Printf("[debug] consul: lookup service=%s, tag=%s", service, tag)
+	log.Printf("[debug] consul: lookup raw='%s' service=%s, tag=%s", str, service, tag)
 
 	list, err := backends(service, tag)
 	if err != nil {
